@@ -27,7 +27,7 @@ export const SearchPopUp = (props) => {
       ))}
       <div className="w-full h-10">
         <button className="w-fit h-full px-4" onClick={handleClick}>
-          See all results for "{inputValue}"
+          See all results for &quot;{inputValue}&quot;
         </button>
       </div>
     </div>
