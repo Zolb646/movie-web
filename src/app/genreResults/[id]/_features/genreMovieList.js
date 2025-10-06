@@ -78,7 +78,8 @@ export const GenreMovieList = ({ genreId, SectionTitle }) => {
         <div className="w-px bg-gray-300"></div>
         <div className="flex-1">
           <p className="mb-4 text-lg font-extrabold">
-            {genreMovies.length} results for <span>"{genreName}"</span>
+            {genreMovies.length} results for{" "}
+            <span>&quot;{genreName}&quot;</span>
           </p>
           <div className="flex flex-wrap justify-between gap-4 md:gap-6 max-xl:justify-center">
             {genreMovies.map((movie, index) => {

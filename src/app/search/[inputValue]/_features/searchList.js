@@ -68,7 +68,8 @@ export const SearchDetails = ({ SectionTitle, inputValue }) => {
       <div className="w-full flex gap-6 max-md:flex-col">
         <div className="flex-1">
           <p className="mb-4 text-lg font-extrabold">
-            {searchResults.length} results for <span>"{inputValue}"</span>
+            {searchResults.length} results for{" "}
+            <span>&quot;{inputValue}&quot;</span>
           </p>
           <div className="flex flex-wrap justify-between gap-4 md:gap-6 max-xl:justify-center">
             {searchResults.map((movie, index) => (
