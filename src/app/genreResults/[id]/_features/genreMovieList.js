@@ -1,7 +1,7 @@
 "use client";
+import { GenreMovieListLoader } from "@/app/_components/genreMovieListLoader";
 import { GenreResults } from "@/app/_components/genreResults";
 import { MovieCard } from "@/app/_components/movieCard";
-import { MovieCardsLoader } from "@/app/_components/movieCardsLoader";
 import { Panigation } from "@/app/_components/pagination";
 import { useEffect, useState } from "react";
 const options = {
@@ -52,28 +52,16 @@ export const GenreMovieList = ({ genreId, SectionTitle }) => {
   }, [page]);
 
   if (loading) {
-    return (
-      <div className="w-full aspect-[1440/1960] flex px-20 flex-col justify-between">
-        <div className="w-full h-9 flex justify-between items-center animate-pulse">
-          <div className="h-9 w-28 bg-gray-200 rounded-lg" />
-        </div>
-        <div className="flex flex-wrap justify-between place-content-between w-full h-[93%]">
-          <MovieCardsLoader />
-          <MovieCardsLoader />
-          <MovieCardsLoader />
-          <MovieCardsLoader />
-        </div>
-      </div>
-    );
+    return <GenreMovieListLoader />;
   }
   return (
-    <div className="w-full flex flex-col gap-6 mb-24 mx-auto px-6 md:px-12 dark:bg-black">
+    <div className="w-full flex flex-col gap-6 mb-24 mx-auto xs:px-6 md:px-12 dark:bg-black px-2">
       <div className="w-full h-9 flex justify-between items-center">
         <p className="text-3xl font-semibold">{SectionTitle}</p>
       </div>
       <div className="w-full flex gap-6 max-md:flex-col">
         <div className="w-[30%] max-md:w-full">
-          <GenreResults />
+          <GenreResults genreName={genreName} />
         </div>
         <div className="w-px bg-gray-300"></div>
         <div className="flex-1">
@@ -81,7 +69,7 @@ export const GenreMovieList = ({ genreId, SectionTitle }) => {
             {genreMovies.length} results for{" "}
             <span>&quot;{genreName}&quot;</span>
           </p>
-          <div className="flex flex-wrap justify-between gap-4 md:gap-6 max-xl:justify-center">
+          <div className="flex flex-wrap justify-between max-md:gap-2 md:gap-6 max-xl:justify-center ">
             {genreMovies.map((movie, index) => {
               return (
                 <MovieCard

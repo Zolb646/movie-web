@@ -14,7 +14,7 @@ export const Input = ({
         mobileSearch ? "w-70 justify-between" : ""
       }`}
     >
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-2.5 max-xs:gap-1">
         <IoSearchOutline className="text-xl" onClick={onClick} />
         <input
           type="text"
@@ -25,19 +25,20 @@ export const Input = ({
           onChange={onChange}
           value={value}
         />
+
+        {mobileSearch && (
+          <button
+            onClick={() => {
+              setMobileSearch(false);
+              SetInputValue("");
+              setSearch([]);
+            }}
+            className="text-2xl text-gray-600 hover:text-black"
+          >
+            <IoClose />
+          </button>
+        )}
       </div>
-      {mobileSearch && (
-        <button
-          onClick={() => {
-            setMobileSearch(false);
-            SetInputValue("");
-            setSearch([]);
-          }}
-          className="ml-3 text-2xl text-gray-600 hover:text-black"
-        >
-          <IoClose />
-        </button>
-      )}
     </div>
   );
 };

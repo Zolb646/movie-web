@@ -8,7 +8,7 @@ export const MovieCard = ({ rating, title, image, movieId }) => {
   };
   return (
     <div
-      className="w-2xs aspect-[230/430] flex flex-col bg-[#f4f4f5] shadow rounded-xl justify-between cursor-pointer max-2xl:w-56 max-xl:w-50 max-xl:aspect-[230/500] max-sm:w-38 3xl:w-82 dark:bg-[#27272a]"
+      className="w-2xs aspect-[230/430] flex flex-col bg-[#f4f4f5] shadow rounded-xl justify-between cursor-pointer max-2xl:w-56 max-xl:w-50 max-xl:aspect-[230/500] max-sm:w-38 3xl:w-82 dark:bg-[#27272a] max-xs:w-33"
       onClick={handleClick}
     >
       <img
@@ -25,7 +25,7 @@ export const MovieCard = ({ rating, title, image, movieId }) => {
             /10
           </p>
         </div>
-        <p className="text-lg h-fit max-md:text-base">{title}</p>
+        <p className="text-lg h-fit max-md:text-base max-sm:text-sm">{title}</p>
       </div>
     </div>
   );

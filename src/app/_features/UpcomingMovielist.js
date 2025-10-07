@@ -46,10 +46,10 @@ export const UpcomingMovieList = () => {
     );
   }
   return (
-    <div className="w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col justify-between max-sm:px-3.5 max-[340px]:px-0">
+    <div className="w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col justify-between max-sm:px-3.5 max-[340px]:px-0 max-xs:px-1">
       <SectionHeader sectionTitle={"Upcoming"} onClick={handleClick} />
 
-      <div className="mt-8 flex flex-wrap gap-6 justify-center md:justify-between max-sm:gap-2">
+      <div className="mt-8 flex flex-wrap gap-6 justify-center md:justify-between max-sm:gap-2 max-sm:p-0">
         {upcomingMovieData.map((movie, index) => (
           <MovieCard
             key={index}

@@ -49,7 +49,7 @@ export const MovieList = ({ SectionTitle }) => {
   }, [page]);
 
   return (
-    <section className="w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col gap-8">
+    <section className="w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col gap-8 max-xs:px-2">
       <div className="flex justify-between items-center">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">
           {SectionTitle}
@@ -61,7 +61,7 @@ export const MovieList = ({ SectionTitle }) => {
           <MovieCardsLoader count={20} />
         </div>
       ) : (
-        <div className="flex flex-wrap gap-6 justify-center">
+        <div className="flex flex-wrap gap-6 justify-center max-md:gap-3">
           {MoviesData.map((movie) => (
             <MovieCard
               key={movie.id}

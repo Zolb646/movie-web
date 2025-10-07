@@ -7,7 +7,6 @@ export const SectionHeader = ({ sectionTitle, onClick }) => {
         {sectionTitle}
       </h2>
 
-      {/* Button */}
       <SeeMoreButton onClick={onClick} />
     </div>
   );

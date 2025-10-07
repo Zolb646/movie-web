@@ -24,19 +24,15 @@ export const Header = () => {
   const [search, setSearch] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mobileSearch, setMobileSearch] = useState(false);
-  //const { theme, setTheme } = useTheme();
-  //const [mounted, setMounted] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        // Tailwind 'md' breakpoint
         setMobileSearch(false);
       }
     };
 
     window.addEventListener("resize", handleResize);
 
-    // Initial check on mount
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
@@ -66,10 +62,6 @@ export const Header = () => {
   useEffect(() => {
     getMovies();
   }, [inputValue]);
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
-  //if (!mounted) return null;
   return (
     <div className="w-full bg-[#f5f5f7] h-18 flex items-center px-7 justify-between z-20 dark:bg-black">
       {!mobileSearch && <Logo />}
@@ -80,7 +72,7 @@ export const Header = () => {
       >
         <div className="flex md:justify-between max-md:gap-5">
           <div
-            className={`flex gap-3.5 ${
+            className={`flex gap-3.5 max-xs:gap-1.5 ${
               mobileSearch ? "w-full flex justify-center items-center" : ""
             }`}
           >
@@ -98,12 +90,7 @@ export const Header = () => {
               setSearch={setSearch}
             />
           </div>
-          {!mobileSearch && (
-            <ThemeToggle />
-            // <div className="flex rounded-xl p-2.5 border border-[#d1d1d1] cursor-pointer">
-            //   <IoMoonOutline className="text-xl" />
-            // </div>
-          )}
+          {!mobileSearch && <ThemeToggle />}
         </div>
         {openGenre && <GenrePopUP />}
         {loading ? (

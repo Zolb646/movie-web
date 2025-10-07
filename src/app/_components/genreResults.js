@@ -12,7 +12,7 @@ const options = {
   },
 };
 
-export const GenreResults = () => {
+export const GenreResults = ({ genreName }) => {
   const [genres, setGenres] = useState([]);
 
   const getGenre = async () => {
@@ -48,6 +48,7 @@ export const GenreResults = () => {
               buttonText={genre.name}
               key={index}
               genreId={genre.id}
+              genreName={genreName}
             />
           ))
         ) : (

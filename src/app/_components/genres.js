@@ -40,7 +40,7 @@ export const Genres = ({ buttonText, genreId }) => {
   }, []);
   return (
     <button
-      className="rounded-4xl shadow bg-[#f1f1f1] flex items-center px-5 py-1.5 gap-2.5 active:scale-95 text-sm dark:bg-[#27272a]"
+      className="rounded-4xl shadow bg-[#f1f1f1] flex items-center px-5 py-1.5 gap-2.5 active:scale-95 text-sm dark:bg-[#27272a] max-sm:px-3.5 max-sm:py-1 max-sm:gap-1.5"
       onClick={handleClick}
     >
       {buttonText}
