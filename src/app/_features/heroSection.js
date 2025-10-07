@@ -40,6 +40,18 @@ export const HeroSection = () => {
   };
 
   useEffect(() => {
+    if (nowPlayingMovies.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === nowPlayingMovies.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [nowPlayingMovies]);
+
+  useEffect(() => {
     getData();
   }, []);
 
