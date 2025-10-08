@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: "inter", sans-serif;
 }
+* button {
+  cursor: pointer;
+}
 @theme {
   --breakpoint-3xl: 120rem;
   --breakpoint-xs: 23.5rem;

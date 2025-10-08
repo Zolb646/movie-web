@@ -5,7 +5,7 @@ export const SearchResults = (props) => {
   const { image, title, rating, year, onClick } = props;
 
   return (
-    <div className="w-full flex items-center gap-4 p-3 rounded-lg cursor-pointer transition sm:p-4 md:p-5">
+    <div className="w-full flex items-center gap-4 p-3 rounded-lg transition sm:p-4 md:p-5">
       <img
         src={image}
         alt={title}

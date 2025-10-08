@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { HeroSectionScroller } from "../_components/heroSectionScroller";
 import { Trailer } from "../_components/trailer";
+import { HeroSectionLoader } from "../_components/heroSectionLoader";
 
 const apiLink =
   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
@@ -67,9 +68,7 @@ export const HeroSection = () => {
     );
   };
   if (loading) {
-    return (
-      <div className="w-full h-64 sm:h-96 md:h-[500px] lg:h-[600px] bg-gray-200 rounded-lg animate-pulse"></div>
-    );
+    return <HeroSectionLoader total={nowPlayingMovies.length} />;
   }
   return (
     <>

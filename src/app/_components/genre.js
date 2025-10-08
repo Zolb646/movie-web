@@ -7,8 +7,8 @@ export const Genre = ({ onClick, mobileSearch }) => {
         ${mobileSearch ? "flex" : "hidden md:flex"}`}
       onClick={onClick}
     >
-      <FaChevronDown className="text-xl" />
-      <span className="text-xl font-semibold max-lg:hidden">Genre</span>
+      <FaChevronDown className="text-lg" />
+      <span className="text-xl font-medium max-lg:hidden">Genre</span>
     </div>
   );
 };

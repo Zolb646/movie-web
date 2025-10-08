@@ -62,7 +62,6 @@ export const Details = (props) => {
       },
       similar: similarMovieJson.results.slice(0, 5),
     });
-
     setLoading(false);
   };
 
@@ -92,7 +91,11 @@ export const Details = (props) => {
   const minutes = runtime % 60;
 
   if (loading) {
-    return <MovieDetailLoader />;
+    return (
+      <>
+        <MovieDetailLoader />
+      </>
+    );
   }
 
   return (
@@ -220,7 +223,6 @@ export const Details = (props) => {
         </div>
       </div>
 
-      {/* Trailer Modal */}
       {trailerKey && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="relative bg-black rounded-lg overflow-hidden shadow-xl w-full max-w-4xl">

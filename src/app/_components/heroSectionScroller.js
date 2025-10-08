@@ -19,7 +19,6 @@ export const HeroSectionScroller = (props) => {
 
   return (
     <div className="w-full aspect-[16/9] lg:aspect-[1440/600] relative flex items-center justify-center max-md:flex-col max-md:aspect-auto max-md:justify-between">
-      {/* Background image (absolute for desktop, normal for mobile) */}
       <img
         src={movieImage}
         alt={movieTitle}

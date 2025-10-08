@@ -2,6 +2,7 @@ import { GenreResults } from "@/app/_components/genreResults";
 import { MovieCard } from "@/app/_components/movieCard";
 import { MovieCardsLoader } from "@/app/_components/movieCardsLoader";
 import { Panigation } from "@/app/_components/pagination";
+import { SearchListLoader } from "@/app/_components/searchListLoader";
 import { useEffect, useState } from "react";
 
 const options = {
@@ -44,19 +45,7 @@ export const SearchDetails = ({ SectionTitle, inputValue }) => {
   }, [inputValue]);
 
   if (loading) {
-    return (
-      <div className="w-full h-[1960px] flex flex-col px-20 justify-between">
-        <div className="w-full h-9 flex justify-between items-center animate-pulse">
-          <div className="h-full w-28 bg-gray-200 rounded-lg" />
-        </div>
-        <div className="flex flex-wrap gap-6 w-full h-[93%]">
-          <MovieCardsLoader />
-          <MovieCardsLoader />
-          <MovieCardsLoader />
-          <MovieCardsLoader />
-        </div>
-      </div>
-    );
+    return <SearchListLoader />;
   }
 
   return (

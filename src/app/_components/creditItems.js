@@ -6,7 +6,7 @@ export const CreditItem = ({ label, items }) => {
         <span className="flex-1">{items.join(" · ")}</span>
       </p>
       <div className="w-full h-5 items-center flex">
-        <div className="w-full h-0.5 border border-gray-300"></div>
+        <div className="w-full h-0.5 border border-gray-300" />
       </div>
     </div>
   );

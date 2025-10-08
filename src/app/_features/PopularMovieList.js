@@ -37,9 +37,9 @@ export const PopularMovieList = () => {
   }, []);
   if (loading) {
     return (
-      <div className="w-full aspect-[1440/980] flex px-20 flex-col justify-between">
+      <div className="w-full aspect-[1440/980] flex flex-col justify-between">
         <SectionHeaderLoader />
-        <div className="flex flex-wrap justify-between place-content-between w-full h-[93%]">
+        <div className="mt-8 flex flex-wrap gap-6 justify-center md:justify-between max-sm:gap-2 max-sm:p-0">
           <MovieCardsLoader count={10} />
         </div>
       </div>

@@ -51,9 +51,13 @@ export const MovieList = ({ SectionTitle }) => {
   return (
     <section className="w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col gap-8 max-xs:px-2">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">
-          {SectionTitle}
-        </h2>
+        {!loading ? (
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">
+            {SectionTitle}
+          </h2>
+        ) : (
+          <div className="w-40 h-9 bg-gray-300 dark:bg-gray-700 rounded"></div>
+        )}
       </div>
 
       {loading ? (
@@ -73,8 +77,20 @@ export const MovieList = ({ SectionTitle }) => {
           ))}
         </div>
       )}
-
-      <Panigation page={page} setPage={setPage} totalPages={totalPages} />
+      {!loading ? (
+        <Panigation page={page} setPage={setPage} totalPages={totalPages} />
+      ) : (
+        <div className="flex justify-end gap-2 mt-4">
+          {Array(5)
+            .fill(0)
+            .map((_, i) => (
+              <div
+                key={i}
+                className="w-10 h-8 bg-gray-300 dark:bg-gray-700 rounded"
+              />
+            ))}
+        </div>
+      )}
     </section>
   );
 };
