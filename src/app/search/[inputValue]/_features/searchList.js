@@ -1,6 +1,5 @@
 import { GenreResults } from "@/app/_components/genreResults";
 import { MovieCard } from "@/app/_components/movieCard";
-import { MovieCardsLoader } from "@/app/_components/movieCardsLoader";
 import { Panigation } from "@/app/_components/pagination";
 import { SearchListLoader } from "@/app/_components/searchListLoader";
 import { useEffect, useState } from "react";
@@ -19,6 +18,7 @@ export const SearchDetails = ({ SectionTitle, inputValue }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
 
   const getData = async () => {
     setLoading(true);
@@ -28,7 +28,7 @@ export const SearchDetails = ({ SectionTitle, inputValue }) => {
       return;
     }
     const data = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${inputValue}&language=en-US&page=1`,
+      `https://api.themoviedb.org/3/search/movie?query=${inputValue}&language=en-US&page=${page}`,
       options
     );
 
@@ -36,13 +36,14 @@ export const SearchDetails = ({ SectionTitle, inputValue }) => {
     console.log("this is search data1", jsonData);
     setSearchResults(jsonData.results);
     setTotalPages(jsonData.total_pages);
+    setTotalResults(jsonData.total_results);
     console.log("search1", searchResults);
     setLoading(false);
   };
 
   useEffect(() => {
     getData();
-  }, [inputValue]);
+  }, [inputValue, page]);
 
   if (loading) {
     return <SearchListLoader />;
@@ -57,8 +58,7 @@ export const SearchDetails = ({ SectionTitle, inputValue }) => {
       <div className="w-full flex gap-6 max-md:flex-col">
         <div className="flex-1">
           <p className="mb-4 text-lg font-extrabold">
-            {searchResults.length} results for{" "}
-            <span>&quot;{inputValue}&quot;</span>
+            {totalResults} results for <span>&quot;{inputValue}&quot;</span>
           </p>
           <div className="flex flex-wrap justify-between gap-4 md:gap-6 max-xl:justify-center">
             {searchResults.map((movie, index) => (

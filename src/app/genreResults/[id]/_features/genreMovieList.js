@@ -19,16 +19,18 @@ export const GenreMovieList = ({ genreId, SectionTitle }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
   const getData = async () => {
     setLoading(true);
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&language=en-US&page=1`,
+      `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&language=en-US&page=${page}`,
       options
     );
     const jsonData = await data.json();
     console.log("genreMoviesData", jsonData);
     setGenreMovies(jsonData.results);
     setTotalPages(jsonData.total_pages);
+    setTotalResults(jsonData.total_results);
     setLoading(false);
   };
   const getGenreName = async () => {
@@ -66,8 +68,7 @@ export const GenreMovieList = ({ genreId, SectionTitle }) => {
         <div className="w-px bg-gray-300"></div>
         <div className="flex-1">
           <p className="mb-4 text-lg font-extrabold">
-            {genreMovies.length} results for{" "}
-            <span>&quot;{genreName}&quot;</span>
+            {totalResults} results for <span>&quot;{genreName}&quot;</span>
           </p>
           <div className="flex flex-wrap justify-between max-md:gap-2 md:gap-6 max-xl:justify-center ">
             {genreMovies.map((movie, index) => {
