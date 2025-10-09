@@ -15,7 +15,10 @@ export const Input = ({
       }`}
     >
       <div className="flex items-center gap-2.5 max-xs:gap-1">
-        <IoSearchOutline className="text-xl" onClick={onClick} />
+        <IoSearchOutline
+          className="text-xl max-md:cursor-pointer"
+          onClick={onClick}
+        />
         <input
           type="text"
           className={`outline-none ${
