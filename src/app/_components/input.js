@@ -10,7 +10,7 @@ export const Input = ({
 }) => {
   return (
     <div
-      className={`flex gap-2.5 items-center shadow-sm border border-[#c5c5c8] rounded-xl px-2 py-1.5 ${
+      className={`flex gap-2.5 items-center shadow-sm border border-[#c5c5c8] rounded-md px-2 py-1.5 ${
         mobileSearch ? "w-70 justify-between" : ""
       }`}
     >
